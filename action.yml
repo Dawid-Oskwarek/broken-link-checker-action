@@ -1,0 +1,23 @@
+name: 'Broken Link Checker'
+description: 'Validates href links from the provided url(s)'
+inputs:
+  urlsToCheck:
+    description: 'A url(s) that you want to validate for broken links'
+    required: true
+  excludedUrls:
+    description: 'Any links that you want to exclude from the test (any expected failures)'
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - shell: bash
+      run: npm ci
+    - shell: bash
+      run: node src/index.js
+      env:
+        urlsToCheck: ${{ inputs.urlsToCheck }}
+        excludeUrls: ${{ inputs.excludeUrls }}

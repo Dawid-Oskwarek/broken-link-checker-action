@@ -1,0 +1,13 @@
+name: Example
+on:
+  pull_request:
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check for broken links
+        uses: ./
+        with:
+          urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
+          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us'
