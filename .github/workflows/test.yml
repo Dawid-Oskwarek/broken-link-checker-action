@@ -14,7 +14,7 @@ jobs:
         uses: ./
         with:
           urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
-          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us'
+          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
 
   example-main:
     if: ${{ github.head_ref == 'main'}}
@@ -24,4 +24,4 @@ jobs:
         uses: Dawid-Oskwarek/broken-link-checker-action@main
         with:
           urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
-          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us'
+          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
