@@ -18,7 +18,7 @@ runs:
     - shell: bash
       run: npm ci
     - shell: bash
-      run: node src/index.js
+      run: npm run test
       env:
         urlsToCheck: ${{ inputs.urlsToCheck }}
         excludedUrls: ${{ inputs.excludedUrls }}
