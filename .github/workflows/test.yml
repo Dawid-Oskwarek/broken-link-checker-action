@@ -1,0 +1,27 @@
+name: Example
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  example-local:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check for broken links
+        uses: ./
+        with:
+          urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
+          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
+
+  example-main:
+    if: ${{ github.head_ref == 'main'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for broken links
+        uses: Dawid-Oskwarek/broken-link-checker-action@main
+        with:
+          urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
+          excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
