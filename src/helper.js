@@ -3,13 +3,12 @@
 import *  as puppeteer from 'puppeteer';
 import { Cluster } from 'puppeteer-cluster';
 
-export async function getLinks(url) {
+export async function getLinks(urls) {
     const allHrefs = [];
-    for( let i = 0; i < URLSearchParams.length; i++){
+    for( let i = 0; i < urls.length; i++){
         const browser = await puppeteer.launch();
         const [page] = await browser.pages();
-
-        await page.goto(url, {waitUntil: 'networkidle0'});
+        await page.goto(urls[i], {waitUntil: 'networkidle0'});
         await new Promise(resolve => setTimeout(resolve, 3000));
 
         const elementHandles = await page.$$('a');
