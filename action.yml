@@ -15,10 +15,8 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - shell: zsh
-      run: npm ci
-    - shell: zsh
-      run: npm run test
+    - run: npm ci
+    - run: npm run test
       env:
         urlsToCheck: ${{ inputs.urlsToCheck }}
         excludedUrls: ${{ inputs.excludedUrls }}
