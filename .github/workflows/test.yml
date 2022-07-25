@@ -17,7 +17,7 @@ jobs:
           excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
 
   example-main:
-    if: ${{ github.head_ref == 'main'}}
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Check for broken links
