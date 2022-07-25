@@ -15,8 +15,14 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - run: npm ci
-    - run: npm run test
+    - shell: bash
+      id: npm-cache-dir
+      run: |
+        echo "::set-output name=dir::$(npm config get cache)"
+    - shell: bash
+      run: npm ci
+    - shell: bash
+      run: npm run test
       env:
         urlsToCheck: ${{ inputs.urlsToCheck }}
         excludedUrls: ${{ inputs.excludedUrls }}
