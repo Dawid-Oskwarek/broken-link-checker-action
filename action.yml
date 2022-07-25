@@ -15,9 +15,9 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - shell: bash
+    - shell: zsh
       run: npm ci
-    - shell: bash
+    - shell: zsh
       run: npm run test
       env:
         urlsToCheck: ${{ inputs.urlsToCheck }}
