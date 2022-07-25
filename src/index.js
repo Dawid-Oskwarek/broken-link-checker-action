@@ -6,8 +6,11 @@ async function run() {
         const urlsToCheck = process.env.urlsToCheck.split(',');
         const excludedUrls = process.env.excludedUrls.split(',');
 
+        console.log(excludedUrls);
+
         const links = await getLinks(urlsToCheck);
         const newLinks = excludeLinks(links, excludedUrls);
+        console.log(newLinks);
         const check = await checkLinks(newLinks);
         expect(check).to.equal(true);
     }
