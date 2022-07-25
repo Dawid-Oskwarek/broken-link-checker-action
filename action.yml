@@ -21,4 +21,4 @@ runs:
       run: node src/index.js
       env:
         urlsToCheck: ${{ inputs.urlsToCheck }}
-        excludedUrls: ${{ inputs.excludeUrls }}
+        excludedUrls: ${{ inputs.excludedUrls }}
