@@ -20,6 +20,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Check for broken links
         uses: Dawid-Oskwarek/broken-link-checker-action@main
         with:
