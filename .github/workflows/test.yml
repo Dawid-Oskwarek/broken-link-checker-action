@@ -15,14 +15,16 @@ jobs:
         with:
           urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
           excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   example-main:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Check for broken links
         uses: Dawid-Oskwarek/broken-link-checker-action@main
         with:
           urlsToCheck: 'https://api.contrastscantest.com, https://api.contrastscantest.com/scan/v1, https://api.contrastscantest.com/serverless/v1'
           excludedUrls: 'https://support.contrastsecurity.com/hc/en-us, https://api.contrastscantest.com/docs/scan/v1/spec.yaml, https://api.contrastscantest.com/docs/serverless/v1/spec.yaml'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
