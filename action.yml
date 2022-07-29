@@ -24,7 +24,7 @@ runs:
       with:
         node-version: 16
     - shell: bash
-      run: npm install --prefix ./broken-link-checker
+      run: npm install --prefix=broken-link-checker
     - shell: bash
       run: npm run test
       env:
