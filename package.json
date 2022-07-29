@@ -5,9 +5,6 @@
     "main": "src/index.js",
     "author": "Dawid Oskwarek",
     "license": "N/A",
-    "scripts": {
-        "test": "node ./broken-link-checker/src/index.js"
-    },
     "dependencies": {
         "chai": "^4.3.6",
         "puppeteer": "^15.4.0",
