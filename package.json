@@ -6,7 +6,7 @@
     "author": "Dawid Oskwarek",
     "license": "N/A",
     "scripts": {
-        "test": "node ./src/index.js"
+        "test": "node ./broken-link-checker/src/index.js"
     },
     "dependencies": {
         "chai": "^4.3.6",

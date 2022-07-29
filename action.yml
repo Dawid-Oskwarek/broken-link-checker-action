@@ -31,4 +31,4 @@ runs:
         urlsToCheck: ${{ inputs.urlsToCheck }}
         excludedUrls: ${{ inputs.excludedUrls }}
     - shell: bash
-      run: rm ./broken-link-checker
+      run: rm -rf ./broken-link-checker
