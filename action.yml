@@ -8,16 +8,27 @@ inputs:
     description: 'Any links that you want to exclude from the test (any expected failures)'
     required: false
     default: ''
+  token:
+    description: 'Token with permission to checkout the action repo'
+    required: true
 runs:
   using: 'composite'
   steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: Dawid-Oskwarek/broken-link-checker-action
+        ref: main
+        token: ${{ inputs.token }}
+        path: ./broken-link-checker
     - uses: actions/setup-node@v3
       with:
         node-version: 16
     - shell: bash
-      run: npm ci
+      run: npm install --prefix ./broken-link-checker
     - shell: bash
       run: npm run test
       env:
         urlsToCheck: ${{ inputs.urlsToCheck }}
         excludedUrls: ${{ inputs.excludedUrls }}
+    - shell: bash
+      run: rm ./broken-link-checker
